@@ -1,14 +1,44 @@
 import React from 'react';
 import '../scss/App.scss';
 
+function HeaderMenu() {
+  return (
+    <div>
+     { HeaderMenuItem("About") }
+     { HeaderMenuItem("Works") }
+     { HeaderMenuItem("Blog") }
+     { HeaderMenuItem("Memo") }
+    </div>
+  )
+
+}
+
+function HeaderMenuItem(name: string) {
+  return (
+    <div>
+      { name }
+    </div>
+  )
+
+}
+
+function Header() {
+  return (
+    <header className="App-header">
+      <div>
+        <p>
+          ymizushi
+        </p>
+      </div>
+      { HeaderMenu() }
+    </header>
+  );
+}
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          ymizushi top page
-        </p>
-      </header>
+      { Header() }
     </div>
   );
 }
