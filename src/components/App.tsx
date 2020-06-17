@@ -4,9 +4,50 @@ import styled from 'styled-components';
 
 import topImage from '../image/top_image.jpg'
 
+function App() {
+  const App = styled.div`
+    margin: 1em 1em;
+  `
+  return (
+    <App >
+      { Header() }
+      { TopImage() }
+      { Works() }
+      { Footer() }
+    </App>
+  );
+}
+
+function Header() {
+  const Header = styled.header`
+  `
+  const HeaderTitle = styled.span`
+    display: block;
+    font-size: 3em;
+    float: left;
+  `
+
+  const HeaderIcon = styled.i`
+    display: block;
+    float: right;
+  `
+
+  return (
+    <Header>
+      <HeaderTitle>
+        ymizushi
+      </HeaderTitle>
+      <HeaderIcon className="fa fa-twitter fa-3x" />
+      <HeaderIcon className="fa fa-facebook-square fa-3x" />
+      <HeaderIcon className="fa fa-github fa-3x" />
+      { HeaderMenu() }
+    </Header>
+  );
+}
+
 function HeaderMenu() {
   const Nav = styled.nav`
-
+    clear: both;
   `
   const MenuList = styled.ul`
     font-size: 1.5em;
@@ -37,34 +78,11 @@ function HeaderMenuItem(name: string) {
 
 }
 
-function Header() {
-  const Header = styled.header`
-  `
-  const HeaderTitle = styled.span`
-    font-size: 3em;
-  `
-
-  const HeaderIcon = styled.i`
-    margin-left: 10em;
-    display: inline-block;
-    margin-right: 10em;
-  `
-
-  return (
-    <Header>
-      <HeaderTitle>
-        ymizushi
-      </HeaderTitle>
-      <HeaderIcon className="fa fa-home"/>
-      { HeaderMenu() }
-    </Header>
-  );
-}
 
 function TopImage() {
   return (
     <>
-      <img src={topImage} width={600} height={400} />
+      <img src={topImage} alt="top" width={600} height={400} />
     </>
   );
 }
@@ -78,7 +96,7 @@ function Works() {
   const work = (w: {src: string, title: string }) => {
     return (
       <div>
-        <img src={ w.src} />
+        <img alt={ w.title } src={ w.src} />
         <div>{ w.title }</div>
       </div>
     )
@@ -101,17 +119,5 @@ function Footer() {
   )
 }
 
-function App() {
-  const App = styled.div`
-  `
-  return (
-    <App className="App">
-      { Header() }
-      { TopImage() }
-      { Works() }
-      { Footer() }
-    </App>
-  );
-}
 
 export default App;
