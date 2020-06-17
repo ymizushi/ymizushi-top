@@ -6,7 +6,8 @@ import topImage from '../image/top_image.jpg'
 
 function App() {
   const App = styled.div`
-    margin: 1em 1em;
+    width: 50em;
+    margin: 0.5em 3em;
   `
   return (
     <App >
@@ -28,6 +29,7 @@ function Header() {
   `
 
   const HeaderIcon = styled.i`
+    margin: 0.5em 0.1em 0.1em 0.1em;
     display: block;
     float: right;
   `
@@ -37,9 +39,9 @@ function Header() {
       <HeaderTitle>
         ymizushi
       </HeaderTitle>
-      <HeaderIcon className="fa fa-twitter fa-3x" />
-      <HeaderIcon className="fa fa-facebook-square fa-3x" />
-      <HeaderIcon className="fa fa-github fa-3x" />
+      <HeaderIcon className="fa fa-twitter fa-2x" />
+      <HeaderIcon className="fa fa-facebook-square fa-2x" />
+      <HeaderIcon className="fa fa-github fa-2x" />
       { HeaderMenu() }
     </Header>
   );
@@ -48,9 +50,11 @@ function Header() {
 function HeaderMenu() {
   const Nav = styled.nav`
     clear: both;
+    float: right;
   `
   const MenuList = styled.ul`
     font-size: 1.5em;
+    margin: 0.1em 0.5em 0.5em;
   `
   return (
     <Nav>
@@ -80,10 +84,13 @@ function HeaderMenuItem(name: string) {
 
 
 function TopImage() {
+  const Img= styled.img`
+    width: 45em;
+    height: 30em;
+    margin: 0 auto;
+  `
   return (
-    <>
-      <img src={topImage} alt="top" width={600} height={400} />
-    </>
+    <Img src={topImage} alt="top" />
   );
 }
 
@@ -118,6 +125,5 @@ function Footer() {
     </Footer>
   )
 }
-
 
 export default App;
